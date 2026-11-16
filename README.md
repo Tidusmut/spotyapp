@@ -14,6 +14,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+For a static preview, run `npm run build` and serve `dist/spotiapp/`.
+If your preview serves the repository root, its `index.html` redirects to the built app.
+The build uses relative asset paths so it also works under `/dist/spotiapp/`.
+Rebuild after source changes to update a static preview.
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).

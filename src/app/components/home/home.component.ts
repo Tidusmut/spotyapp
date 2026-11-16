@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SpotifyService } from '../../services/spotify.service';
 
 @Component({
@@ -28,8 +28,9 @@ export class HomeComponent {
 
           this.loading = false;
           this.error = true;
-          console.log(errorServicio);
-          this.mensajeError = errorServicio.error.error.message;
+          this.mensajeError = errorServicio.status === 401
+            ? 'La sesión de Spotify venció. Actualiza el token de acceso para cargar la música.'
+            : 'No se pudo cargar la música. Comprueba tu conexión e inténtalo de nuevo.';
 
         });
 

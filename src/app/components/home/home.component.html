@@ -1,3 +1,15 @@
-<app-loading></app-loading>
+<h1>Novedades</h1>
+<p>Descubre los últimos lanzamientos de Spotify.</p>
 
-<app-tarjetas [items]="nuevasCanciones"></app-tarjetas>
+<app-loading *ngIf="loading"></app-loading>
+
+<div *ngIf="error" class="alert alert-warning" role="alert">
+  <h2 class="h5">No pudimos cargar los lanzamientos</h2>
+  <p class="mb-0">{{ mensajeError }}</p>
+</div>
+
+<p *ngIf="!loading && !error && nuevasCanciones.length === 0" role="status">
+  No hay lanzamientos disponibles en este momento.
+</p>
+
+<app-tarjetas *ngIf="!loading && !error" [items]="nuevasCanciones"></app-tarjetas>
